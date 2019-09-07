@@ -26,13 +26,14 @@ class ShapeDetector:
 		elif len(approx) == 4:
 			# compute the bounding box of the contour and use the
 			# bounding box to compute the aspect ratio
-			(x, y, w, h) = cv2.boundingRect(approx)
-			ar = w / float(h)
+			#(x, y, w, h) = cv2.boundingRect(approx)
+			#ar = float(w / h)
  
 			# a square will have an aspect ratio that is approximately
 			# equal to one, otherwise, the shape is a rectangle
-			shape = "square" if ar >= 0.95 and ar <= 1.05 else "rectangle"
- 
+			# shape = "square" if ar >= 0.9 and ar <= 1.1 else "rectangle"
+			shape = "rectangle"
+
 		# if the shape is a pentagon, it will have 5 vertices
 		elif len(approx) == 5:
 			shape = "pentagon"
@@ -46,7 +47,7 @@ class ShapeDetector:
 
 
 # WebCam Streaming using imutils
-vs = VideoStream(src=2).start()
+vs = VideoStream(src=0).start()
 
 greenLower = (10, 140, 100)
 greenUpper = (30, 255, 255)
@@ -54,8 +55,8 @@ greenUpper = (30, 255, 255)
 redLower = (0, 80, 80)
 redUpper = (10, 255, 190)
 
-blueLower = (100, 30, 0)
-blueUpper = (120, 255, 128)
+blueLower = (100, 60, 40)
+blueUpper = (120, 255, 200)
 
 pts=deque(maxlen=64)
 

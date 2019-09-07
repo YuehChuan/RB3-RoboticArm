@@ -28,7 +28,7 @@ def start_video():
     global videostarted, stopEvent, cap, thread
 
     # Create video camera object and start streaming to it.
-    cap = cv2.VideoCapture(2) # 0 == Continuous
+    cap = cv2.VideoCapture(4) # 0 == Continuous
 
     # The video_image loop must use tkinter threading or the sliders
     # won't work, so this sets up threading before calling video_image()
