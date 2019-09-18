@@ -101,8 +101,6 @@ def run():
         not_understood()
         return 0
 
-def position(x, y):
-    print(x)
 
 while True:
 
